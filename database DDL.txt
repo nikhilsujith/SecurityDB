@@ -1,22 +1,27 @@
-# DROP DATABASE SECURITY;
 
-CREATE DATABASE SECURITY;
+DROP DATABASE SECURITY3;
 
-USE SECURITY;
+CREATE DATABASE SECURITY3;
 
+USE SECURITY3;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+# DROP TABLE user_accounts;
 CREATE TABLE user_accounts(
     userID INT NOT NULL,
     phone varchar(12) NOT NULL DEFAULT 'NULL',
     userName varchar(100) NOT NULL,
+#     userRole varchar(100) NOT NULL DEFAULT 'staff',
     CONSTRAINT UAPK PRIMARY KEY (userID)
 );
 
 CREATE TABLE DbTable(
     tableName varchar(100) NOT NULL,
     ownerID int NOT NULL,
-    CONSTRAINT tpk PRIMARY KEY (tableName),
-    CONSTRAINT tfk FOREIGN KEY (ownerID) REFERENCES user_accounts(userID)
+    CONSTRAINT tpk PRIMARY KEY (tableName)
 );
+
 
 CREATE TABLE privileges(
     pid int NOT NULL ,
@@ -24,23 +29,24 @@ CREATE TABLE privileges(
     CONSTRAINT ppk PRIMARY KEY (pid)
 );
 
-
+# DROP TABLE user_role;
 CREATE TABLE user_role(
     roleName varchar(100) NOT NULL,
     description varchar(100),
     userID int NOT NULL ,
-    CONSTRAINT urpk PRIMARY KEY (roleName),
-    CONSTRAINT urfk FOREIGN KEY (userID) REFERENCES user_accounts(userID)
+    CONSTRAINT urpk PRIMARY KEY (roleName, userID)
 );
+
+
 
 CREATE TABLE account_privileges(
     pid int NOT NULL ,
     accID int NOT NULL ,
     roleName varchar(100) NOT NULL ,
-    CONSTRAINT appk PRIMARY KEY (pid, accID),
-    CONSTRAINT apfk1 FOREIGN KEY (pid) REFERENCES privileges(pid),
-    CONSTRAINT apfk2 FOREIGN KEY (roleName) REFERENCES user_role(roleName)
+    CONSTRAINT appk PRIMARY KEY (pid, accID)
 );
+
+
 
 CREATE TABLE relation_privileges(
     pid int NOT NULL ,
@@ -48,15 +54,38 @@ CREATE TABLE relation_privileges(
     grantorID int NOT NULL ,
     roleName varchar(100) ,
     tableName varchar(100),
-    CONSTRAINT rppk PRIMARY KEY (pid, relationID),
-    CONSTRAINT rpfk1 FOREIGN KEY (pid) REFERENCES privileges (pid),
-    CONSTRAINT rpfk2 FOREIGN KEY (grantorID) REFERENCES user_accounts(userID)
+    CONSTRAINT rppk PRIMARY KEY (pid, relationID)
 );
-
 
 CREATE TABLE has_access(
     roleName varchar(100) NOT NULL ,
     tableName varchar(100) NOT NULL ,
-    relationID int NOT NULL ,
+    relationID int NOT NULL,
     CONSTRAINT hspk PRIMARY KEY (roleName, tableName)
 );
+
+
+/*
+ALTER TABLE DbTable
+ADD CONSTRAINT tfk FOREIGN KEY (ownerID) REFERENCES user_accounts(userID);
+# ON DELETE RESTRICT
+# ON UPDATE CASCADE ;
+
+ALTER TABLE user_role
+ADD CONSTRAINT urfk FOREIGN KEY (userID) REFERENCES user_accounts(userID);
+# ON DELETE RESTRICT
+# ON UPDATE CASCADE ;
+
+ALTER TABLE account_privileges
+ADD CONSTRAINT apfk1 FOREIGN KEY (pid) REFERENCES privileges(pid),
+ADD CONSTRAINT apfk2 FOREIGN KEY (roleName) REFERENCES user_role(roleName);
+# ON DELETE RESTRICT
+# ON UPDATE CASCADE ;
+
+
+ALTER TABLE relation_privileges
+ADD  CONSTRAINT rpfk1 FOREIGN KEY (pid) REFERENCES privileges (pid),
+ADD CONSTRAINT rpfk2 FOREIGN KEY (grantorID) REFERENCES user_accounts(userID);
+# ON DELETE RESTRICT
+# ON UPDATE CASCADE ;
+*/

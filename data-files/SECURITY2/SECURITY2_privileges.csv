@@ -1,0 +1,8 @@
+100,create
+101,drop
+102,alter
+103,insert
+104,delete
+105,update
+106,select
+107,reference
