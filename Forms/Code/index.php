@@ -1,8 +1,10 @@
 <?php
-    include("../php/connection.php");
+    include("connection.php");
+    // echo "hello";
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -16,7 +18,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <?php  include("side-nav.php"); ?>
+        <?php include ("sideNav.php") ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -44,21 +46,34 @@
         <div class="card-body">
             <div class="row">
             </div>
+
             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
                 <table class="table my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
+                            <th>User ID </th>
                             <th>Phone</th>
-                        </tr>
+                            <th>User Name</th>
+                        </tr>                    
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                        </tr>
+                    <?php
+                        $sql = "SELECT `userID`, `phone`,`userName` FROM user_accounts;";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) 
+                        {
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                                echo "
+                                <tr>
+                                <td>". $row['userID']."</td>
+                                <td>". $row['phone']."</td>
+                                <td>". $row['userName']."</td>
+                                </tr>";
+                            }
+                        }
+                    ?>
                 </table>
             </div>
         </div>
