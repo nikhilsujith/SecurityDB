@@ -38,9 +38,6 @@
                     <div class="row">
                         <div class="col"><label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label><input type="text"></div>
                     </div>
-                    <div class="row">
-                        <div class="col"><label>User Role:&nbsp; &nbsp; &nbsp;&nbsp;</label><input type="text"></div>
-                    </div>
                     <div class="row"><div class="container-fluid">
     <h3 class="text-dark mb-4">User Details</h3>
     <div class="card shadow">
@@ -54,7 +51,6 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Phone</th>
-                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,7 +58,6 @@
                             <td>Airi Satou</td>
                             <td>Accountant</td>
                             <td>Tokyo</td>
-                            <td>33</td>
                         </tr>
                 </table>
             </div>
