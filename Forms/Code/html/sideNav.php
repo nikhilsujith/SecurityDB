@@ -17,7 +17,7 @@ include("../php/connection.php");
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i>Relate User Account to Role</a></li>
             <li class="nav-item"><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Acc Priv to Role</span></a>
                 <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Relation Priv to Role and Table</span></a>
-                <a class="nav-link" href="retrieve-role-priv.php"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a>
+                <a class="nav-link" href="../php/retrieve_role-priv-mysql.php"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a>
                 <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a>
                 <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
         </ul>
