@@ -60,11 +60,12 @@
                                         </thead>
                                         <body>
                                         <?php
-                                        $roleName = $_POST['roleName'];
+//                                        $roleName = $_POST['roleName'];
                                         $sql = "SELECT privType, roleName FROM privileges, account_privileges
                                                     WHERE account_privileges.pid = privileges.pid
                                                    ";
                                         $result = mysqli_query($conn, $sql);
+                                        include ("../php/retrieve_role-priv-mysql.php");
                                         if (mysqli_num_rows($result) > 0)
                                         {
                                             // output data of each row
