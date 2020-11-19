@@ -1,7 +1,3 @@
-<?php
-    include("connection.php");
-    // echo "hello";
-?>
 <!DOCTYPE html>
 <html>
 
@@ -9,16 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <?php include ("sideNav.php") ?>
+        <?php include("sideNav.php") ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -32,7 +28,7 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                <FORM method="POST" action="add_user.php">
+                <FORM method="POST" action="../php/add_user.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Create New User</h3>
                         <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
