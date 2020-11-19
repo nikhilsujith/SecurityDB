@@ -9,7 +9,7 @@ $sql = "INSERT INTO `user_role` (`roleName`, `description`)
  VALUES ('$rolename','$description')";
 
 $checking = mysqli_query($conn, $sql);
-$url = "new_role.php";
+$url = "../html/new_role.php";
 if ($checking) 
         {   
         // echo "query success";
