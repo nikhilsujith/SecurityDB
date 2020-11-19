@@ -10,7 +10,7 @@ INSERT INTO SECURITY2.privileges VALUES (107,'reference');
 #3.5 assign role to new account
 UPDATE SECURITY2.user_role
 SET userID = 11
-WHERE userID = 808 AND roleName = 'newRole';
+WHERE userID = 15 AND roleName = 'newRole';
 
 #3.6 assign role an account privilege
 INSERT INTO SECURITY2.account_privileges VALUES (100,800,'newRole');
