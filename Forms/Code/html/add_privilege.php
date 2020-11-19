@@ -1,14 +1,10 @@
-<?php
-    include("connection.php");
-    // echo "hello";
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>Insert New Privilege</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
@@ -18,25 +14,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"></div>
-                    <div class="sidebar-brand-text mx-3"></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-user-plus"></i><span>Create New User</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i>Create New Role</a></li>
-                    <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i>Create New&nbsp;<span>Table</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i>Insert New Privilege</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i>Relate User Account to Role</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Acc Priv to Role</span></a><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Relation Priv to Role and Table</span></a>
-                        <a
-                            class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
-                </ul>
-            </div>
-        </nav>
+        <?php include("sideNav.php") ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -50,19 +28,29 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
+                <FORM method="POST" action="../php/new-privilege-mysql.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Create New User</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Submit Query</a></div>
+                        <h3 class="text-dark mb-0">Create New User</h3>
+                        <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
+                        </i>&nbsp;Execute Query</button> -->
+                        </div>
                     <div class="row">
-                        <div class="col"><label>User Name:&nbsp; &nbsp;&nbsp;</label><input type="text"></div>
+                        <div class="col">
+                        <label>Privilege ID:&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="pid"></div>
                     </div>
                     <div class="row">
-                        <div class="col"><label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label><input type="text"></div>
+                        <div class="col">
+                        <label>Privilege Type:&nbsp; &nbsp; &nbsp;</label>
+                        <input type="text" name="privType"></div>
                     </div>
-                    <div class="row">
-                        <div class="col"><label>User Role:&nbsp; &nbsp; &nbsp;&nbsp;</label><input type="text"></div>
-                    </div>
+                    <br/>
+                    <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
+                        </i>&nbsp;Execute Query</button>
+                    </FORM>
+                    <br/><br/>
                     <div class="row"><div class="container-fluid">
-    <h3 class="text-dark mb-4">User Details</h3>
+    <h3 class="text-dark mb-4">Existing Privileges</h3>
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
@@ -72,15 +60,13 @@
                 <table class="table my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>User ID </th>
-                            <th>Phone</th>
-                            <th>User Name</th>
-                            <!-- <th>Role</th> -->
+                            <th>Privilege ID</th>
+                            <th>Privilege Type</th>
                         </tr>                    
                     </thead>
                     <tbody>
                     <?php
-                        $sql = "SELECT `userID`, `phone`,`userName` FROM user_accounts;";
+                        $sql = "SELECT `pid`, `privType` FROM privileges;";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) 
                         {
@@ -89,9 +75,8 @@
                             {
                                 echo "
                                 <tr>
-                                <td>". $row['userID']."</td>
-                                <td>". $row['phone']."</td>
-                                <td>". $row['userName']."</td>
+                                <td>". $row['pid']."</td>
+                                <td>". $row['privType']."</td>
                                 </tr>";
                             }
                         }

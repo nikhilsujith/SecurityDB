@@ -10,10 +10,10 @@ include("../php/connection.php");
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link" href="../html/index.php"><i class="fa fa-user-plus"></i><span>Create New User</span></a></li>
+            <li class="nav-item"><a class="nav-link " href="../html/index.php"><i class="fa fa-user-plus"></i><span>Create New User</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../html/new_role.php"><i class="fas fa-user"></i>Create New Role</a></li>
-            <li class="nav-item"><a class="nav-link" href="../html/create_new_table.php"><i class="fas fa-table"></i>Create New&nbsp;<span>Table</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i>Insert New Privilege</a></li>
+            <li class="nav-item"><a class="nav-link" href="create_new_table.php"><i class="fas fa-table"></i>Create New&nbsp;<span>Table</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="add_privilege.php"><i class="far fa-user-circle"></i>Insert New Privilege</a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i>Relate User Account to Role</a></li>
             <li class="nav-item"><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Acc Priv to Role</span></a>
                 <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Relate Relation Priv to Role and Table</span></a>

@@ -34,14 +34,14 @@ WHERE SECURITY2.user_accounts.userID = SECURITY2.user_role.userID
       AND SECURITY2.user_role.roleName = SECURITY2.role_priv.roleName;
 
 # View to show privileges for each user account
-CREATE VIEW all_user_priv
-AS (
-    SELECT SECURITY2.user_accounts.userID, SECURITY2.user_accounts.userName,
-       SECURITY2.user_role.roleName, SECURITY2.role_priv.privType
-        FROM SECURITY2.user_accounts, SECURITY2.user_role, SECURITY2.role_priv
-            WHERE SECURITY2.user_accounts.userID = SECURITY2.user_role.userID
-                AND SECURITY2.user_role.roleName = SECURITY2.role_priv.roleName
-);
+-- CREATE VIEW all_user_priv
+-- AS (
+--     SELECT SECURITY2.user_accounts.userID, SECURITY2.user_accounts.userName,
+--        SECURITY2.user_role.roleName, SECURITY2.role_priv.privType
+--         FROM SECURITY2.user_accounts, SECURITY2.user_role, SECURITY2.role_priv
+--             WHERE SECURITY2.user_accounts.userID = SECURITY2.user_role.userID
+--                 AND SECURITY2.user_role.roleName = SECURITY2.role_priv.roleName
+-- );
 
 SELECT * FROM all_user_priv;
 
