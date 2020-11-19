@@ -41,12 +41,6 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                        <label>Account Privilege ID (to identify the privilege and the role together):&nbsp;</label>
-                        <input type="text" name="accID"><p>*Select an account privilege id which does not exist below, if its a new role without any account privileges.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
                         <label>Role Name :&nbsp;</label>
                         <input type="text" name="roleName"></div>
                     </div>

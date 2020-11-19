@@ -16,7 +16,7 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                <FORM method="POST" action="../php/add_user.php">
+                <FORM method="POST" action="../php/relate-ternary-mysql.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h6 class="text-dark mb-0">Grant Privilege to Role on Table <h6>[Relate Relation Privilege to Role And Table]</h6>
                         <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
