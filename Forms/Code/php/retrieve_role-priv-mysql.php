@@ -1,7 +1,9 @@
 <?php
 include ("connection.php");
 
-$roleName = $_POST["roleName"];
+//$roleName = $_POST["roleName"];
+$roleName = isset($_POST["roleName"]) ? $_POST["roleName"] : '';
+
 
 $sql = "SELECT privType, roleName FROM privileges, account_privileges
         WHERE account_privileges.pid = privileges.pid
