@@ -9,11 +9,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css">
 </head>
 
 <body id="page-top">
@@ -32,16 +32,29 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
+                <FORM method="POST" action="add_user.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Create New User</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Submit Query</a></div>
+                        <h3 class="text-dark mb-0">Create New User</h3>
+                        <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
+                        </i>&nbsp;Execute Query</button> -->
+                        </div>
                     <div class="row">
-                        <div class="col"><label>User Name:&nbsp; &nbsp;&nbsp;</label><input type="text"></div>
+                        <div class="col">
+                        <label>User Name:&nbsp; &nbsp;&nbsp;</label>
+                        <input type="text" name="username"></div>
                     </div>
                     <div class="row">
-                        <div class="col"><label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label><input type="text"></div>
+                        <div class="col">
+                        <label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
+                        <input type="text" name="phone"></div>
                     </div>
+                    <br/>
+                    <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
+                        </i>&nbsp;Execute Query</button>
+                    </FORM>
+                    <br/><br/>
                     <div class="row"><div class="container-fluid">
-    <h3 class="text-dark mb-4">User Details</h3>
+    <h3 class="text-dark mb-4">Existing User Details</h3>
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
