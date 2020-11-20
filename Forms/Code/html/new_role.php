@@ -1,4 +1,8 @@
-<?php include ("heading.php") ?>
+<?php
+$failMessage = "Role Already Exists";
+$successMessage = "Role Added";
+include("../html/heading.php");
+?>
 <body id="page-top">
     <div id="wrapper">
         <?php include ("sideNav.php") ?>

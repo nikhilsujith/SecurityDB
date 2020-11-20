@@ -10,7 +10,7 @@ include("../php/connection.php");
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link " href="../html/index.php"><i class="fa fa-user-plus"></i><span>[]Create New User</span></a></li>
+            <li class="nav-item"><a class="nav-link " href="../html/index.php"><i class="fa fa-user-plus"></i><span>Create New User</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../html/new_role.php"><i class="fas fa-user"></i>Create New Role</a></li>
             <li class="nav-item"><a class="nav-link" href="create_new_table.php"><i class="fas fa-table"></i>Create New&nbsp;<span>Table</span></a></li>
             <li class="nav-item"><a class="nav-link" href="add_privilege.php"><i class="far fa-user-circle"></i>Insert New Privilege</a></li>
@@ -23,3 +23,12 @@ include("../php/connection.php");
         </ul>
     </div>
 </nav>
+<script>
+    setTimeout(function() {
+        $('#flash-msg').fadeOut('fast');
+    }, 1000); // <-- time in milliseconds
+</script>
+<!--Remove success flag from url after reload-->
+<script>
+    history.pushState(null, "", location.href.split("?")[0]);
+</script>

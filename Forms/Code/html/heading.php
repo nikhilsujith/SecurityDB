@@ -9,3 +9,23 @@
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
 </head>
+
+
+<!--Checks for success or fail message for each page after php processing-->
+<?php
+if ( isset($_GET['success']) && $_GET['success'] == 0 ) {
+echo'
+<div class="alert alert-danger" id="flash-msg">
+    <center>'.$failMessage.'</center>
+</div>';
+}
+else if(isset($_GET['success']) && $_GET['success'] == 1){
+echo'
+<div class="alert alert-success" id="flash-msg">
+    <center>'.$successMessage.'</center>
+</div>';
+}
+else{
+echo '';
+}
+?>

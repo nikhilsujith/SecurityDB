@@ -1,23 +1,16 @@
 <?php
-        include("../html/heading.php");
-        if ( isset($_GET['success']) && $_GET['success'] == 0 ) {
-                 echo '<script>alert("A user with the same name already exists, Please pick a different name")</script>';
-        }
-        else if(isset($_GET['success']) && $_GET['success'] == 1){
-            echo '<script>alert("User Successfully Added!")</script>';
-        }
-        else{
-            echo '';
-        } ?>
-
+    $failMessage = "User Exists";
+    $successMessage = "User Added!";
+    include("../html/heading.php");
+?>
 <body id="page-top">
-    <div id="wrapper">
+ <div id="wrapper">
         <?php include("sideNav.php") ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <h2 class="text-dark mb-0">Security Sub System</h2>
+                        <h2 class="text-dark mb-0">Discretionary Access Control Management</h2>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -99,6 +92,16 @@
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="../assets/js/theme.js"></script>
+ <!-- Hide Alter Div-->
+<!--    <script>-->
+<!--        setTimeout(function() {-->
+<!--            $('#flash-msg').fadeOut('fast');-->
+<!--        }, 1000); // <-- time in milliseconds-->
+<!--    </script>-->
+<!--    Remove success flag from url after reload-->
+<!--    <script>-->
+<!--        history.pushState(null, "", location.href.split("?")[0]);-->
+<!--    </script>-->
 </body>
 
 </html>
