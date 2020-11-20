@@ -11,22 +11,23 @@ $sql = "INSERT INTO `DbTable` (`tablename`, `ownerID`)
 
 $checking = mysqli_query($conn, $sql);
 $url = "../html/create_new_table.php";
-if ($checking)
-{
-    // echo "query success";
-    echo '<script type="text/javascript">';
-    echo 'window.location.href="'.$url.'";';
-    echo '</script>';
-    echo '<noscript>';
-    echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
-    echo '</noscript>';
-    exit();
-}
-else
-{
-    echo "Query Error";
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-mysqli_close($conn);
+if ($checking) 
+        {
+        $flag = 1;
+         Header( 'Location: ../html/create_new_table.php?success=1' );
+         exit();
+        } 
+        else 
+        {
+            if($conn->errno == 1062){
+                $flag = 0;
+            }
+        }
+        if($flag == 0){
+            Header( 'Location: ../html/create_new_table.php?success=0' );
+            exit();
+        }
+        mysqli_close($conn);
+
 
 ?>

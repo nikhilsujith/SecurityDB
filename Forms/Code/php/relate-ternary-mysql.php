@@ -25,32 +25,24 @@ if ($result)
         {   
             if(($ownerID == $row['ownerID']) && ($tableName == $row['tableName']))
             {
-                    $sql2 = "INSERT INTO relation_privileges values ('$pid','$ownerID','$roleName','$tableName')";
+                    $sql2 = "INSERT INTO has_access values ('$pid','$roleName','$ownerID','$tableName')";
                     $checking = mysqli_query($conn, $sql2);
                     // echo $checking;
                     if($checking)
                     {
-                        // echo "query success";
-                        echo '<script type="text/javascript">';
-                        echo 'window.location.href="'.$url.'";';
-                        echo '</script>';
-                        echo '<noscript>';
-                        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
-                        echo '</noscript>';
-                        exit();
+                        $flag = 1;
+                        break;
 
                     }
                     else{
-
-                        echo "Query Error";
-                        echo "Error: " . $sql2 . "<br>" . $conn->error;
+                        $flag = 0;
+                        break;
                     }
 
             }
             else{
-                $flag = 1;
-                // echo "Owner Does Not Print The Table";
-                // echo "Error: " . $sql . "<br>" . $conn->error;
+                $flag = 2;
+
             }
 
         }    
@@ -61,16 +53,17 @@ else
     echo "Error: " . $sql1 . "<br>" . $conn->error;
 }
 
-if($flag ==1)
+if($flag == 0)
 {
-    echo "The Owner ID Entered does not own the Table provided.";
-    // echo "query success";
-    // echo '<script type="text/javascript">';
-    // echo 'window.location.href="'.$url.'";';
-    // echo '</script>';
-    // echo '<noscript>';
-    // echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
-    // echo '</noscript>';
+    Header( 'Location: ../html/relate-ternary.php?success=0' );
+    exit();
+}
+else if($flag == 1){
+    Header( 'Location: ../html/relate-ternary.php?success=1' );
+    exit();
+}
+else if($flag == 2){
+    Header( 'Location: ../html/relate-ternary.php?success=2' );
     exit();
 }
 

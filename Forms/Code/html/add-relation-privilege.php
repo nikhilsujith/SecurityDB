@@ -5,7 +5,7 @@ $successMessage = "Privilege to Role Granted!";
 $notOwnerFail = "The Owner ID Entered does not own the Table provided";
 include("../html/heading.php");
 ?>
-<title> Relate Ternary</title>
+<title>Add Realtion Privilege</title>
 <body id="page-top">
 <div id="wrapper">
     <?php include("sideNav.php") ?>
@@ -13,7 +13,7 @@ include("../html/heading.php");
         <div id="content">
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                    <h2 class="text-dark mb-0">Security Sub System</h2>
+                    <h2 class="text-dark mb-0">Discretionary Access Control Management</h2>
                     <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <div class="input-group-append"></div>
@@ -25,8 +25,8 @@ include("../html/heading.php");
                 <FORM method="POST" action="../php/relate-ternary-mysql.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h6 class="text-dark mb-0">Grant Privilege to Role on Table <h6>[Relate Relation Privilege to Role And Table]</h6>
-                        <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
-                        </i>&nbsp;Execute Query</button> -->
+                            <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
+                            </i>&nbsp;Execute Query</button> -->
                     </div>
                     <div class="row">
                         <div class="col">

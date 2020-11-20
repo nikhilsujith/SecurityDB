@@ -28,12 +28,12 @@
                     <div class="row">
                         <div class="col">
                         <label>User Name:&nbsp; &nbsp;&nbsp;</label>
-                        <input type="text" name="username"></div>
+                        <input type="text" name="username" required></div>
                     </div>
                     <div class="row">
                         <div class="col">
                         <label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
-                        <input type="text" name="phone"></div>
+                        <input type="text" name="phone" required></div>
                     </div>
                     <br/>
                     <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">

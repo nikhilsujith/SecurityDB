@@ -30,7 +30,7 @@
                 <div class="container-fluid">
                 <FORM method="POST" action="../php/new-privilege-mysql.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Create New User</h3>
+                        <h3 class="text-dark mb-0">Insert New Privilege</h3>
                         <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
                         </i>&nbsp;Execute Query</button> -->
                         </div>

@@ -11,6 +11,7 @@
 </head>
 
 
+
 <!--Checks for success or fail message for each page after php processing-->
 <?php
 if ( isset($_GET['success']) && $_GET['success'] == 0 ) {
@@ -25,6 +26,13 @@ echo'
     <center>'.$successMessage.'</center>
 </div>';
 }
+else if(isset($_GET['success']) && $_GET['success'] == 2){
+echo'
+<div class="alert alert-danger" id="flash-msg">
+    <center>'.$notOwnerFail.'</center>
+</div>';
+}
+
 else{
 echo '';
 }
