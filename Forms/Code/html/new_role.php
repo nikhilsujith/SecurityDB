@@ -13,12 +13,12 @@ include("../html/heading.php");
                     <div class="row">
                         <div class="col">
                         <label>Role Name:&nbsp; &nbsp;&nbsp;</label>
-                        <input type="text" name="rolename"></div>
+                        <input type="text" name="roleName" required></div>
                     </div>
                     <div class="row">
                         <div class="col">
                         <label>Description:&nbsp; &nbsp; </label>
-                        <input type="text" name="description"></div>
+                        <input type="text" name="description" required></div>
                     </div>
                     <br/>
                     <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">

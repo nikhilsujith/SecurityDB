@@ -1,5 +1,5 @@
 <?php
-$failMessage = "User Already Assigned Role";
+$failMessage = "User Does Not Exist / User Already Assigned";
 $successMessage = "User Has Been Assigned a Role";
 $roleDoesNotExist = "Entered Role Does Not Exist";
 include("../html/heading.php");

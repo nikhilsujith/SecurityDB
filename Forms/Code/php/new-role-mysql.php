@@ -1,15 +1,12 @@
 <?php
-    $rolename = $_POST['rolename'];
+    $roleName = $_POST['roleName'];
     $description = $_POST['description'];
     include("connection.php");
 
-//    Set default UserID
-    $defaultUserID = 12;
-    $query_check_userID = "SELECT userID FROM user_role";
 
 
     $sql = "INSERT INTO `user_role` (`roleName`, `description`)
-     VALUES ('$rolename','$description')";
+     VALUES ('$roleName','$description')";
 
     $checking = mysqli_query($conn, $sql);
     $url = "../html/new_role.php";

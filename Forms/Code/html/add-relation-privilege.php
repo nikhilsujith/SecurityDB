@@ -1,6 +1,6 @@
 
 <?php
-$failMessage = "Privilege Already Allowed on Table''";
+$failMessage = "Privilege Already Allowed on Table / Wrong Privilege Entered";
 $successMessage = "New Privilege Added On Table";
 $notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
 include("../html/heading.php");
@@ -22,7 +22,7 @@ include("../html/heading.php");
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>Allow Privilege  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; </label>
+                            <label>Allow Privilege ID  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; </label>
                             <input type="text" name="pid"></div>
                     </div>
                     <br/>

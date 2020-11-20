@@ -1,6 +1,6 @@
 <?php
-$failMessage = "User Exists";
-$successMessage = "User Added!";
+$failMessage = "Privilege Type Already Exists";
+$successMessage = "Privilege Added!";
 include("../html/heading.php");
 ?>
 <title>Add New Privilege</title>
