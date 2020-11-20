@@ -4,7 +4,7 @@
     $roleName = $_POST['roleName'];
 
     include("connection.php");
-$sql = "INSERT INTO `account_privileges` (`pid`, `accID`, `roleName`) VALUES ('$pid', '$accID', '$roleName')";
+$sql = "INSERT INTO `account_privileges` (`pid`,`roleName`) VALUES ('$pid','$roleName')";
 
 $checking = mysqli_query($conn, $sql);
 $url = "../html/relate_acc_priv_to_role.php";

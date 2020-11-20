@@ -61,13 +61,12 @@
                     <thead>
                         <tr>
                             <th>Privilege ID</th>
-                            <th>Account Privilege ID </th>
                             <th>Role Name</th>
                         </tr>                    
                     </thead>
                     <tbody>
                     <?php
-                        $sql = "SELECT `pid`, `accID`, `roleName` FROM account_privileges";
+                        $sql = "SELECT `pid`,`roleName` FROM account_privileges";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) 
                         {
@@ -77,7 +76,6 @@
                                 echo "
                                 <tr>
                                 <td>". $row['pid']."</td>
-                                <td>". $row['accID']."</td>
                                 <td>". $row['roleName']."</td>
                                 </tr>";
                             }
