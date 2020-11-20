@@ -18,8 +18,8 @@ include("../php/connection.php");
             <li class="nav-item"><a class="nav-link" href="relate_acc_priv_to_role.php"><i class="fas fa-window-maximize"></i><span>Relate Acc Priv to Role</span></a>
                 <a class="nav-link" href="../html/relate-ternary.php"><i class="fas fa-window-maximize"></i><span>Relate Relation Priv to Role and Table</span></a>
                 <a class="nav-link" href="../php/retrieve_role-priv-mysql.php"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a>
-                <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a>
-                <a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
+                <a class="nav-link" href="../php/retrieve-user-priv.php"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a>
+                <a class="nav-link" href="../php/check-priv-for-user.php"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
         </ul>
     </div>
 </nav>

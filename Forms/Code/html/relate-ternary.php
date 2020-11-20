@@ -74,13 +74,12 @@
                                             while($row = mysqli_fetch_assoc($result))
                                             {
                                                 echo "
-                                <tr>
-                                <td>". $row['grantorID']."</td>
-                                <td>". $row['tableName']."</td>
-                                <td>". $row['pid']."</td>
-                                <td>". $row['roleName']."</td>
-                      
-                                </tr>";
+                                                     <tr>
+                                                         <td>". $row['grantorID']."</td>
+                                                         <td>". $row['tableName']."</td>
+                                                         <td>". $row['pid']."</td>
+                                                         <td>". $row['roleName']."</td>
+                                                    </tr>";
                                             }
                                         }
                                         ?>

@@ -15,7 +15,6 @@ $url = "../html/relate-ternary.php";
 //Flag
 $flag = 0;
 
-
 $sql1 = "SELECT * FROM DbTable";
 $result = mysqli_query($conn, $sql1);
 

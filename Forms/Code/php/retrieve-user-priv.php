@@ -1,15 +1,17 @@
 <?php
 include ("connection.php");
 
-//$roleName = $_POST["roleName"];
-$roleName = isset($_POST["roleName"]) ? $_POST["roleName"] : '';
+$userID = isset($_POST["userID"]) ? $_POST["userID"] : '';
 
-
-$sql = "SELECT privType, roleName FROM privileges, account_privileges
-        WHERE account_privileges.pid = privileges.pid
-        AND account_privileges.roleName = '$roleName'";
+$sql = "SELECT user_accounts.userID, user_accounts.userName,
+       user_role.roleName, role_priv.privType
+FROM user_accounts, user_role, role_priv
+WHERE user_accounts.userID = user_role.userID
+      AND user_accounts.userID = '$userID'
+      AND user_role.roleName = role_priv.roleName";
 
 $result = mysqli_query($conn, $sql);
+
 //$url = "../html/retrieve-role-priv";
 if (!$result) {
     printf("Error: %s\n", mysqli_error($conn));
@@ -34,7 +36,7 @@ if (!$result) {
                 </div>
             </nav>
             <div class="container-fluid">
-                <FORM method="POST" action="../php/retrieve_role-priv-mysql.php">
+                <FORM method="POST" action="retrieve-user-priv.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Role and Privilege</h3>
                         <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
@@ -42,8 +44,8 @@ if (!$result) {
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>Role:&nbsp; &nbsp;&nbsp;</label>
-                            <input type="text" name="roleName" required>
+                            <label>User ID:&nbsp; &nbsp;&nbsp;</label>
+                            <input type="text" name="userID" required>
                         </div>
                     </div>
                     <br/>
@@ -52,7 +54,7 @@ if (!$result) {
                 </FORM>
                 <br/><br/>
                 <div class="row"><div class="container-fluid">
-                        <h3 class="text-dark mb-4">Existing User Details</h3>
+                        <h3 class="text-dark mb-4">User Privileges</h3>
                         <div class="card shadow">
                             <div class="card-body">
                                 <div class="row">
@@ -61,14 +63,16 @@ if (!$result) {
                                     <table class="table my-0" id="dataTable">
                                         <thead>
                                         <tr>
-                                            <th>Role </th>
+                                            <th>User ID</th>
+                                            <th>User Name</th>
                                             <th>Privilege</th>
                                         </tr>
                                         </thead>
                                         <body>
                                         <?php
                                         while ($row = mysqli_fetch_array($result)) {
-                                            echo "<td>" . $row['roleName'] . "</td>";
+                                            echo "<td>" . $row['userID'] . "</td>";
+                                            echo "<td>" . $row['userName'] . "</td>";
                                             echo "<td>" . $row['privType'] . "</td>";
                                             echo "</tr>";
                                         }
