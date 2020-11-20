@@ -3,26 +3,49 @@
     $roleName = $_POST['roleName'];
 
     include("connection.php");
-    $sql = "UPDATE `user_role` SET `userID` = '$userID' WHERE (`roleName` = '$roleName') and (`userID` = '12')";
+//    check if the user ID being input already has a role
+    $query_check_user_role = "SELECT userID FROM user_role WHERE userID = $userID";
+    $result_check_user_role = mysqli_query($conn, $query_check_user_role);
 
-$checking = mysqli_query($conn, $sql);
-$url = "../html/relate_account_to_role.php";
-if ($checking) 
-        {   
-        // echo "query success";
-        echo '<script type="text/javascript">';
-        echo 'window.location.href="'.$url.'";';
-        echo '</script>';
-        echo '<noscript>';
-        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
-        echo '</noscript>'; 
-            exit();
-        } 
-        else 
-        {   
-            echo "Query Error";
-            echo "Error: " . $sql . "<br>" . $conn->error;
+    if(mysqli_num_rows($result_check_user_role) == 0){ //userID entered is not assigned a role
+        $flag = 1;
+//        Get the description for the role
+        $query_get_role_desc = "SELECT description FROM user_role WHERE roleName = '$roleName'";
+        $result_get_role_desc = mysqli_query($conn, $query_get_role_desc );
+
+        while($row = mysqli_fetch_assoc($result_get_role_desc)){
+            $description = $row['description'];
         }
-        mysqli_close($conn);
+
+// Assign given userID to existing role
+        $sql = "INSERT INTO user_role VALUES ('$roleName','$description','$userID')";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    else{ //userID already has a role
+        $flag = 0;
+    }
+//    else{
+//        $sql = "UPDATE `user_role` SET `userID` = '$userID' WHERE (`roleName` = '$roleName') and (`userID` = '12')";
+//    }
+
+    $url = "../html/relate_account_to_role.php";
+    if ($result)
+    {
+        $flag = 1;
+    }
+    else
+    {
+        $flag = 0;
+    }
+    if($flag == 0){
+        Header( 'Location: ../html/relate_account_to_role.php?success=0' );
+        exit();
+    }
+    else if ($flag == 1){
+        Header( 'Location: ../html/relate_account_to_role.php?success=1' );
+        exit();
+    }
+    mysqli_close($conn);
 
 ?>
