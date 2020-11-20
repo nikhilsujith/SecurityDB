@@ -3,9 +3,7 @@
     $roleName = $_POST['roleName'];
 
     include("connection.php");
-$sql = "UPDATE `user_role` SET `userID` = '$userID' WHERE (`roleName` = '$roleName') and (`userID` = '15')";
-
-
+    $sql = "UPDATE `user_role` SET `userID` = '$userID' WHERE (`roleName` = '$roleName') and (`userID` = '12')";
 
 $checking = mysqli_query($conn, $sql);
 $url = "../html/relate_account_to_role.php";
