@@ -1,36 +1,29 @@
 
 <?php
-$failMessage = "Privilege Already Exists";
-$successMessage = "Privilege to Role Granted!";
-$notOwnerFail = "The Owner ID Entered does not own the Table provided";
+$failMessage = "Privilege Already Allowed on Table''";
+$successMessage = "New Privilege Added On Table";
+$notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
 include("../html/heading.php");
 ?>
 <title>Add Realtion Privilege</title>
-                <FORM method="POST" action="../php/relate-ternary-mysql.php">
+                <FORM method="POST" action="../php/add-relation-privilege-mysql.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h6 class="text-dark mb-0">Grant Privilege to Role on Table <h6>[Relate Relation Privilege to Role And Table]</h6>
-                            <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
-                            </i>&nbsp;Execute Query</button> -->
+                        <h3 class="text-dark mb-0">Allow Privileges on Table</h3>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>As Owner with ID:&nbsp; &nbsp;&nbsp;</label>
+                            <label>As Owner with ID:&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</label>
                             <input type="text" name="ownerID"></div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>Of Table:&nbsp; &nbsp;&nbsp;</label>
+                            <label>Of Table: &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
                             <input type="text" name="tableName"></div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>Grant Privilege <span>[pid]</span>:&nbsp; &nbsp;&nbsp;</label>
+                            <label>Allow Privilege  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; </label>
                             <input type="text" name="pid"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label>On Role:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
-                            <input type="text" name="roleName"></div>
                     </div>
                     <br/>
                     <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
@@ -48,15 +41,14 @@ include("../html/heading.php");
                                     <table class="table my-0" id="dataTable">
                                         <thead>
                                         <tr>
-                                            <th>Grantor ID</th>
-                                            <th>Table Name</th>
                                             <th>Privilege ID </th>
-                                            <th>Role Name</th>
+                                            <th>Table Name</th>
+                                            <th>Owner ID</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $sql = "SELECT * FROM has_access";
+                                        $sql = "SELECT * FROM relation_privileges";
                                         $result = mysqli_query($conn, $sql);
                                         if (mysqli_num_rows($result) > 0)
                                         {
@@ -65,10 +57,9 @@ include("../html/heading.php");
                                             {
                                                 echo "
                                                      <tr>
-                                                         <td>". $row['grantorID']."</td>
-                                                         <td>". $row['tableName']."</td>
                                                          <td>". $row['pid']."</td>
-                                                         <td>". $row['roleName']."</td>
+                                                         <td>". $row['tableName']."</td>
+                                                         <td>". $row['grantorID']."</td>
                                                     </tr>";
                                             }
                                         }

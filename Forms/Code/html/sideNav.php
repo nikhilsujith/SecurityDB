@@ -27,7 +27,7 @@ include("../php/connection.php");
 <script>
     setTimeout(function() {
         $('#flash-msg').fadeOut('fast');
-    }, 1000); // <-- time in milliseconds
+    }, 5000); // <-- time in milliseconds
 </script>
 <!--Remove success flag from url after reload-->
 <script>

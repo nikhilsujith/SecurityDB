@@ -30,11 +30,14 @@ if ($result)
                     // echo $checking;
                     if($checking)
                     {
+//                        Success, owner has assigned privilege on owned table to the said role
                         $flag = 1;
                         break;
 
                     }
-                    else{
+                    else if($conn->errno == 1452){
+//                        Error because table is not given the said relation privilege.
+//                        Add the relation privilege pid first in relations_privilege table
                         $flag = 0;
                         break;
                     }

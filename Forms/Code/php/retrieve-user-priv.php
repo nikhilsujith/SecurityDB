@@ -17,25 +17,13 @@ if (!$result) {
     printf("Error: %s\n", mysqli_error($conn));
     exit();
 }
-
 ?>
-<?php include ("../html/heading.php") ?>
-<body id="page-top">
-<div id="wrapper">
-    <?php include("../html/sideNav.php") ?>
-    <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content">
-            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                    <h2 class="text-dark mb-0">Security Sub System</h2>
-                    <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <div class="input-group-append"></div>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-            <div class="container-fluid">
+
+<?php
+$failMessage = "User Exists";
+$successMessage = "User Added!";
+include("../html/heading.php");
+?>
                 <FORM method="POST" action="retrieve-user-priv.php">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Role and Privilege</h3>

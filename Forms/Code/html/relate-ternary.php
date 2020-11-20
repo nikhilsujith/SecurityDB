@@ -1,8 +1,9 @@
 
 <?php
-$failMessage = "Privilege Already Exists";
+$failMessage = "The entered privilege has not been allowed on the table; 
+First, allow the privilege on the table to grant access to role";
 $successMessage = "Privilege to Role Granted!";
-$notOwnerFail = "The Owner ID Entered does not own the Table provided";
+$notOwnerFail = "Access Denied. Entered Owner ID is not the owner of the table";
 include("../html/heading.php");
 ?>
 <title> Relate Ternary</title>
