@@ -1,6 +1,6 @@
 <?php
-$failMessage = "User Exists";
-$successMessage = "User Added!";
+$failMessage = "Role / Privilege Does Not Exist ";
+$successMessage = "Privilege Granted to Role";
 include("../html/heading.php");
 ?>
 <title>Relate Account Priv To Role</title>

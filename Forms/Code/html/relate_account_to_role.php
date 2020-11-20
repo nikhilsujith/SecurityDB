@@ -1,6 +1,7 @@
 <?php
 $failMessage = "User Already Assigned Role";
 $successMessage = "User Has Been Assigned a Role";
+$roleDoesNotExist = "Entered Role Does Not Exist";
 include("../html/heading.php");
 ?>
 <tile>Relate Account To Role</tile>

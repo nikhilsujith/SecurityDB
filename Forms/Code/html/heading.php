@@ -47,6 +47,12 @@ echo'
     <center>'.$notOwnerFail.'</center>
 </div>';
 }
+else if(isset($_GET['success']) && $_GET['success'] == 5){
+    echo'
+    <div class="alert alert-danger" id="flash-msg">
+        <center>'.$roleDoesNotExist.'</center>
+    </div>';
+    }
 
 else{
 echo '';
