@@ -4,89 +4,56 @@
     include("../html/heading.php");
 ?>
 <title>Create New User</title>
-                <FORM method="POST" action="../php/add_user.php">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Create New User</h3>
-                        <!-- <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
-                        </i>&nbsp;Execute Query</button> -->
-                        </div>
-                    <div class="row">
-                        <div class="col">
-                        <label>User Name:&nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" name="username" required></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                        <label>Phone:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
-                        <input type="text" name="phone" required></div>
-                    </div>
-                    <br/>
-                    <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
-                        </i>&nbsp;Execute Query</button>
-                    </FORM>
-                    <br/><br/>
-                    <div class="row"><div class="container-fluid">
-    <h3 class="text-dark mb-4">Existing User Details</h3>
-    <div class="card shadow">
-        <div class="card-body">
-            <div class="row">
+<div class="row">
+        <div class="col-sm-4">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">User Settings</p>
             </div>
-
-            <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
-                <table class="table my-0" id="dataTable">
-                    <thead>
-                        <tr>
-                            <th>User ID </th>
-                            <th>Phone</th>
-                            <th>User Name</th>
-                        </tr>                    
-                    </thead>
-                    <tbody>
-                    <?php
-                        $sql = "SELECT `userID`, `phone`,`userName` FROM user_accounts;";
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) 
-                        {
-                            // output data of each row
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-                                echo "
-                                <tr>
-                                <td>". $row['userID']."</td>
-                                <td>". $row['phone']."</td>
-                                <td>". $row['userName']."</td>
-                                </tr>";
-                            }
-                        }
-                    ?>
-                </table>
+            <div class="card-body">
+                <form method="POST" action="../php/add_user.php">
+                    <div class="row">
+                        <div class="form-group"><label for="username"><strong>Username</strong></label><input required class="form-control" type="text" placeholder="Name" name="username" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group"><label for="phone"><strong>Phone Number</strong></label><input required class="form-control" type="phone" placeholder="XXX-XXX-XXXX" name="phone" /></div>
+                    </div>
+                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Execute Query</button></div>
+                </form>
             </div>
         </div>
+    <div class="col">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Existing User Details</p>
+        </div>
+        <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+            <table class="table my-0 table-light table-striped  " id="dataTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th>User ID </th>
+                    <th>Phone</th>
+                    <th>User Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $sql = "SELECT `userID`, `phone`,`userName` FROM user_accounts;";
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0)
+                {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "
+                        <tr>
+                        <td>". $row['userID']."</td>
+                        <td>". $row['phone']."</td>
+                        <td>". $row['userName']."</td>
+                        </tr>";
+                    }
+                }
+                ?>
+            </table>
+        </div>
     </div>
-</div></div>
-                </div>
-            </div>
-            <footer class="bg-white sticky-footer">
-                <h3 class="text-dark mb-0"></h3>
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"></div>
-                </div>
-            </footer>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="../assets/js/theme.js"></script>
- <!-- Hide Alter Div-->
-<!--    <script>-->
-<!--        setTimeout(function() {-->
-<!--            $('#flash-msg').fadeOut('fast');-->
-<!--        }, 1000); // <-- time in milliseconds-->
-<!--    </script>-->
-<!--    Remove success flag from url after reload-->
-<!--    <script>-->
-<!--        history.pushState(null, "", location.href.split("?")[0]);-->
-<!--    </script>-->
-</body>
-
-</html>
+</div>
+<?php include("../html/footer.php"); ?>
