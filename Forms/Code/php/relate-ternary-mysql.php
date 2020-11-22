@@ -19,41 +19,56 @@
 
     if ($result)
     {
-        while($row = mysqli_fetch_assoc($result)) {
-    //                check if ownerID and owned table name match
-            if(($ownerID == $row['ownerID']) && ($tableName == $row['tableName'])) {
+        while($row = mysqli_fetch_assoc($result)) //row contains record of table name and owner id
+        {
+            //INPUT = 2 and managerTable - 106 temp
+            //hrTable	1
+            //managerTable	2
+            //staffTable	3
+            //new table	4
+            //check if ownerID and owned table name match
+            if(($ownerID == $row['ownerID']) && ($tableName == $row['tableName'])) 
+            {
+                $flag=1;
+                $sql_relation = "SELECT pid,tableName FROM relation_privileges WHERE pid ='$pid' AND tableName = '$tableName'";
+                $relation_check = mysqli_query($conn, $sql_relation);
 
-    //                    check if the privilege being granted by by the owner is allowed on the role [account privilege]
-                $sql3 = "SELECT pid, roleName FROM account_privileges WHERE pid = '$pid' AND roleName = '$roleName'";
-                $checking3 = mysqli_query($conn, $sql3);
+                if(mysqli_num_rows($relation_check) !=0)
+                {
+                    // echo "Success";
+                    $sql3 = "SELECT pid, roleName FROM account_privileges WHERE pid = '$pid' AND roleName = '$roleName'";
+                    $checking3 = mysqli_query($conn, $sql3);
 
-                if($checking3){
-                    while($row = mysqli_fetch_assoc($checking3)){
-                        if(($pid == $row['pid']) && ($roleName == $row['roleName'])){
+                    if(mysqli_num_rows($checking3) !=0)
+                    {
 
-                            $sql2 = "INSERT INTO has_access values ('$pid','$roleName','$ownerID','$tableName')";
-                            $checking = mysqli_query($conn, $sql2);
-
-                            if ($checking) {
-                                //                        Success, owner has assigned privilege on owned table to the said role
-                                $flag = 1;
-                                break;
-
-                            } else if ($conn->errno == 1452) {
-                                //                        Error because table is not given the said relation privilege.
-                                //                        Add the relation privilege pid first in relations_privilege table
-                                $flag = 0;
-                                break;
-                            }
-                        }
-                        else{
-                            $flag = 8;
+                        $sql2 = "INSERT INTO has_access values ('$pid','$roleName','$ownerID','$tableName')";
+                        $checking = mysqli_query($conn, $sql2);
+                        if($checking)
+                        {
+                            $flag=1;
                             break;
                         }
                     }
+                    else
+                    {
+                        $flag = 8;
+                        break;
+                        // echo "No account priv for entered role";
+                    }
+
+
+                    
                 }
+                else 
+                {
+                    $flag = 9; // Priv Not Granted on Table
+                    break;
+                }
+
             }
-            else{
+            else
+            {
                 $flag = 2;
             }
         }
@@ -79,6 +94,10 @@
     }
     else if($flag == 8){
         Header( 'Location: ../html/relate-ternary.php?success=8' );
+        exit();
+    }
+    else if($flag == 9){
+        Header( 'Location: ../html/relate-ternary.php?success=9' );
         exit();
     }
 

@@ -66,6 +66,13 @@ else if(isset($_GET['success']) && $_GET['success'] == 8){
         <center>'.$noAccountPrivilege.'</center>
     </div>';
     }
+    else if(isset($_GET['success']) && $_GET['success'] == 9){
+        echo'
+        <div class="alert alert-danger" id="flash-msg">
+            <center>'.$noRelationforTable.'</center>
+        </div>';
+        }
+
 
 else{
 echo '';

@@ -28,7 +28,7 @@ include("../html/heading.php");
             </form>
         </div>
     </div>
-    <div class="col">
+    <!-- <div class="col">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">Existing Privileges for User</p>
         </div>
@@ -61,7 +61,7 @@ include("../html/heading.php");
                 ?>
             </table>
         </div>
-    </div>
+    </div> -->
 </div>
 <?php include("../html/footer.php"); ?>
 
