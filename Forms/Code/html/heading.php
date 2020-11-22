@@ -53,6 +53,12 @@ else if(isset($_GET['success']) && $_GET['success'] == 5){
         <center>'.$roleDoesNotExist.'</center>
     </div>';
     }
+else if(isset($_GET['success']) && $_GET['success'] == 7){
+    echo'
+    <div class="alert alert-danger" id="flash-msg">
+        <center>'.$nocreatedrop.'</center>
+    </div>';
+    }
 
 else{
 echo '';
