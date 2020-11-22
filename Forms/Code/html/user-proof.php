@@ -1,7 +1,6 @@
 <?php
-$failMessage = "Privilege Already Allowed on Table / Wrong Privilege Entered";
-$successMessage = "New Privilege Added On Table";
-$notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
+$failMessage = "Access denied. User does not have privilege on this table ";
+$successMessage = "Access granted!. User can perform the entered operation on this table";
 include("../html/heading.php");
 ?>
 <title>Access Table as a User</title>
@@ -14,9 +13,9 @@ include("../html/heading.php");
             <p class="text-primary m-0 font-weight-bold">User Settings</p>
         </div>
         <div class="card-body">
-            <form method="POST" action="#">
+            <form method="POST" action="../php/user-proof-mysql.php">
                 <div class="row">
-                    <div class="form-group"><label for="phone"><strong>As User With ID</strong></label><input required class="form-control" type="number" placeholder=" " name="userID" /></div>
+                    <div class="form-group"><label for="phone"><strong>As User With ID</strong></label><input required class="form-control" type="text" placeholder=" " name="userName" /></div>
                 </div>
                 <div class="row">
                     <div class="form-group"><label for="username"><strong>Access Privilege</strong></label><input required class="form-control" type="text" placeholder=" " name="privType"/></div>
@@ -44,7 +43,7 @@ include("../html/heading.php");
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM relation_privileges";
+                $sql = "SELECT * FROM user_priv_table";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0)
                 {
@@ -53,9 +52,9 @@ include("../html/heading.php");
                     {
                         echo "
                                  <tr>
-                                     <td>". $row['pid']."</td>
+                                     <td>". $row['userName']."</td>
                                      <td>". $row['tableName']."</td>
-                                     <td>". $row['grantorID']."</td>
+                                     <td>". $row['privType']."</td>
                                 </tr>";
                     }
                 }
