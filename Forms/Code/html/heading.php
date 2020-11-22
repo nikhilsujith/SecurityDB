@@ -59,6 +59,13 @@ else if(isset($_GET['success']) && $_GET['success'] == 7){
         <center>'.$nocreatedrop.'</center>
     </div>';
     }
+//checking if account has privilege before granting relation privilege
+else if(isset($_GET['success']) && $_GET['success'] == 8){
+    echo'
+    <div class="alert alert-danger" id="flash-msg">
+        <center>'.$noAccountPrivilege.'</center>
+    </div>';
+    }
 
 else{
 echo '';

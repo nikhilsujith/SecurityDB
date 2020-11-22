@@ -1,6 +1,6 @@
 <?php
 $failMessage = "Access denied. User does not have privilege on this table ";
-$successMessage = "Access granted!. User can perform the entered operation on this table";
+$successMessage = "Access has already been granted!. User can perform the entered operation on this table";
 include("../html/heading.php");
 ?>
 <title>Access Table as a User</title>

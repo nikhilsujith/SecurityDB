@@ -2,7 +2,7 @@
 $failMessage = "Privilege Already Allowed on Table / Wrong Privilege Entered";
 $successMessage = "New Privilege Added On Table";
 $notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
-$nocreatedrop = "Cannot Allow Create or Drop Privileges on this Table to another user.";
+$nocreatedrop = "CREATE / DROP not allowed on tables";
 include("../html/heading.php");
 ?>
 <title>Allow Privilege on Table</title>
