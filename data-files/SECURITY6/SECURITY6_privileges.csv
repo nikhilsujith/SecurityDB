@@ -1,0 +1,12 @@
+100,create
+101,drop
+102,alter
+103,insert
+104,delete
+105,update
+106,select
+107,reference
+108,temp
+109,temp 2
+110,test1
+10001010,create

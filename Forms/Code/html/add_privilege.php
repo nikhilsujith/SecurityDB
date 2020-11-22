@@ -39,7 +39,7 @@ include("../html/heading.php");
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT `pid`, `privType` FROM privileges;";
+                $sql = "SELECT `pid`, `privType` FROM privileges ORDER BY pid;";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0)
                 {

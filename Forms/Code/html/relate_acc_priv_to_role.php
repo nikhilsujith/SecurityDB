@@ -33,13 +33,17 @@ include("../html/heading.php");
             <table class="table my-0 table-light table-striped  " id="dataTable">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Privilege ID</th>
                     <th>Role Name</th>
+                    <th>Privilege Type</th>
+                    <th>Privilege ID</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT `pid`,`roleName` FROM account_privileges";
+                $sql = "SELECT DISTINCT privileges.privType, privileges.pid, user_role.roleName
+                        FROM privileges, account_privileges,user_role
+                        WHERE  privileges.pid = account_privileges.pid AND user_role.roleName = account_privileges.roleName
+                        ORDER BY user_role.roleName;";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0)
                 {
@@ -48,8 +52,10 @@ include("../html/heading.php");
                     {
                         echo "
                                 <tr>
-                                <td>". $row['pid']."</td>
                                 <td>". $row['roleName']."</td>
+                                <td>". $row['privType']."</td>
+                                <td>". $row['pid']."</td>
+                       
                                 </tr>";
                     }
                 }
