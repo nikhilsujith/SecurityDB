@@ -4,22 +4,25 @@ $successMessage = "New Privilege Added On Table";
 $notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
 include("../html/heading.php");
 ?>
-<title>Allow Privilege on Table</title>
+<title>Access Table as a User</title>
+<div class="row">
+    <h4>Access Table as a User</h4>
+</div>
 <div class="row">
     <div class="col-sm-4">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">User Settings</p>
         </div>
         <div class="card-body">
-            <form method="POST" action="../php/add-relation-privilege-mysql.php">
+            <form method="POST" action="#">
                 <div class="row">
-                    <div class="form-group"><label for="phone"><strong>As Owner With ID</strong></label><input required class="form-control" type="number" placeholder=" " name="ownerID" /></div>
+                    <div class="form-group"><label for="phone"><strong>As User With ID</strong></label><input required class="form-control" type="number" placeholder=" " name="userID" /></div>
                 </div>
                 <div class="row">
-                    <div class="form-group"><label for="username"><strong>of Table</strong></label><input required class="form-control" type="text" placeholder=" " name="tableName" /></div>
+                    <div class="form-group"><label for="username"><strong>Access Privilege</strong></label><input required class="form-control" type="text" placeholder=" " name="privType"/></div>
                 </div>
                 <div class="row">
-                    <div class="form-group"><label for="username"><strong>Allow Privilege with ID</strong></label><input required class="form-control" type="number" placeholder=" " name="pid" /></div>
+                    <div class="form-group"><label for="username"><strong>on Table</strong></label><input required class="form-control" type="text" placeholder=" " name="tableName" /></div>
                 </div>
                 <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
                     </i>&nbsp;Execute Query</button>

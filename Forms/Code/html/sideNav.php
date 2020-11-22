@@ -21,6 +21,7 @@ include("../php/connection.php");
             <li class="nav-item"><a class="nav-link" href="../php/retrieve_role-priv-mysql.php"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a></li>
             <li class="nav-item"><a class="nav-link" href="../php/retrieve-user-priv.php"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a></li>
             <li class="nav-item"><a class="nav-link" href="../php/check-priv-for-user.php"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="../html/user-proof.php"><i class="fas fa-window-maximize"></i><span>Access Table as User</span></a></li>
         </ul>
     </div>
 </nav>

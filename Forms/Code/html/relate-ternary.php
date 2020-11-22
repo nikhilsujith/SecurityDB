@@ -1,6 +1,5 @@
 <?php
-$failMessage = "The entered privilege has not been allowed on the table; 
-First, allow the privilege on the table to grant access to role";
+$failMessage = "The entered privilege has not been allowed on the table / You entered an invalid role";
 $successMessage = "Privilege to Role Granted!";
 $notOwnerFail = "Access Denied. Entered Owner ID is not the owner of the table";
 include("../html/heading.php");
@@ -54,12 +53,12 @@ include("../html/heading.php");
                     while($row = mysqli_fetch_assoc($result))
                     {
                         echo "
-                                                     <tr>
-                                                         <td>". $row['grantorID']."</td>
-                                                         <td>". $row['tableName']."</td>
-                                                         <td>". $row['pid']."</td>
-                                                         <td>". $row['roleName']."</td>
-                                                    </tr>";
+                                 <tr>
+                                     <td>". $row['grantorID']."</td>
+                                     <td>". $row['tableName']."</td>
+                                     <td>". $row['pid']."</td>
+                                     <td>". $row['roleName']."</td>
+                                </tr>";
                     }
                 }
                 ?>

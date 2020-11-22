@@ -28,6 +28,10 @@ $successMessage = "User Added!";
 include("../html/heading.php");
 ?>
 <title>Retrieve Role Privileges</title>
+    <div class="row">
+        <h4>Checking Privilege for a User</h4>
+    </div>
+
 <div class="row">
     <div class="col-sm-4">
         <div class="card-header py-3">
