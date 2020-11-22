@@ -1,13 +1,12 @@
 <?php
-$failMessage = "Privilege Already Allowed on Table / Wrong Privilege Entered";
-$successMessage = "New Privilege Added On Table";
-$notOwnerFail = "Access Denied. Owner ID entered, is not the owner of the table";
-$nocreatedrop = "Cannot Allow Create or Drop Privileges on this Table to another user.";
+$failMessage = "Revoke Unsuccessful as Privilege / Role may be invalid";
+$successMessage = "Privilege Successfully Revoked";
+$notOwnerFail = "Access Denied. Incorrect Owner ID or Table ";
 include("../html/heading.php");
 ?>
-<title>Allow Privilege on Table</title>
+<title> Revoke Privilege</title>
 <div class="row">
-    <h4>Add Relation Privilege for A Table</h4>
+    <h4>Revoke Privilege for a User on A Table</h4>
 </div>
 <div class="row">
     <div class="col-sm-4">
@@ -15,7 +14,7 @@ include("../html/heading.php");
             <p class="text-primary m-0 font-weight-bold">User Settings</p>
         </div>
         <div class="card-body">
-            <form method="POST" action="../php/add-relation-privilege-mysql.php">
+            <form method="POST" action="../php/revoke-mysql.php">
                 <div class="row">
                     <div class="form-group"><label for="phone"><strong>As Owner With ID</strong></label><input required class="form-control" type="number" placeholder=" " name="ownerID" /></div>
                 </div>
@@ -23,7 +22,10 @@ include("../html/heading.php");
                     <div class="form-group"><label for="username"><strong>of Table</strong></label><input required class="form-control" type="text" placeholder=" " name="tableName" /></div>
                 </div>
                 <div class="row">
-                    <div class="form-group"><label for="username"><strong>Allow Privilege with ID</strong></label><input required class="form-control" type="number" placeholder=" " name="pid" /></div>
+                    <div class="form-group"><label for="username"><strong>Revoke Privilege with ID</strong></label><input required class="form-control" type="number" placeholder=" " name="pid" /></div>
+                </div>
+                <div class="row">
+                    <div class="form-group"><label for="username"><strong>To Role</strong></label><input required class="form-control" type="text" placeholder=" " name="roleName" /></div>
                 </div>
                 <button class="btn btn-primary btn-sm d-none d-sm-inline-block" type ="submit" name="submit" ><i class="fas fa-download fa-sm text-white-50">
                     </i>&nbsp;Execute Query</button>
@@ -38,14 +40,15 @@ include("../html/heading.php");
             <table class="table my-0 table-light table-striped  " id="dataTable">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Privilege ID </th>
+                    <th>Grantor ID</th>
                     <th>Table Name</th>
-                    <th>Owner ID</th>
+                    <th>Privilege ID </th>
+                    <th>Role Name</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM relation_privileges";
+                $sql = "SELECT * FROM has_access";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0)
                 {
@@ -54,9 +57,10 @@ include("../html/heading.php");
                     {
                         echo "
                                  <tr>
-                                     <td>". $row['pid']."</td>
-                                     <td>". $row['tableName']."</td>
                                      <td>". $row['grantorID']."</td>
+                                     <td>". $row['tableName']."</td>
+                                     <td>". $row['pid']."</td>
+                                     <td>". $row['roleName']."</td>
                                 </tr>";
                     }
                 }
@@ -66,4 +70,5 @@ include("../html/heading.php");
     </div>
 </div>
 <?php include("../html/footer.php"); ?>
+
 

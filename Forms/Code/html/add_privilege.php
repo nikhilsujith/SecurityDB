@@ -5,6 +5,10 @@ include("../html/heading.php");
 ?>
 <title>Create New User</title>
 <div class="row">
+    <h4>Add A New Privilege</h4>
+</div>
+
+<div class="row">
     <div class="col-sm-4">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">User Settings</p>

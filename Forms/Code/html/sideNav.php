@@ -18,10 +18,12 @@ include("../php/connection.php");
             <li class="nav-item"><a class="nav-link" href="../html/relate_acc_priv_to_role.php"><i class="fas fa-window-maximize"></i><span>Relate Acc Priv to Role</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../html/add-relation-privilege.php"><i class="fas fa-window-maximize"></i><span>Add Relation Privilege</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../html/relate-ternary.php"><i class="fas fa-window-maximize"></i><span>Relate Relation Priv to Role and Table</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="../html/revoke.php"><i class="fas fa-window-maximize"></i><span>Revoke Privilege of User From Table</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../php/retrieve_role-priv-mysql.php"><i class="fas fa-window-maximize"></i>Retrieve Role Privileges</a></li>
             <li class="nav-item"><a class="nav-link" href="../php/retrieve-user-priv.php"><i class="fas fa-window-maximize"></i>&nbsp;Retrieve User Privileges</a></li>
             <li class="nav-item"><a class="nav-link" href="../php/check-priv-for-user.php"><i class="fas fa-window-maximize"></i><span>Check Privilege for User</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../html/user-proof.php"><i class="fas fa-window-maximize"></i><span>Access Table as User</span></a></li>
+
         </ul>
     </div>
 </nav>

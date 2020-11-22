@@ -22,18 +22,27 @@ if ($result)
     {
         if(($ownerID == $row['ownerID']) && ($tableName == $row['tableName']))
         {
-            $sql2 = "INSERT INTO relation_privileges values ('$pid','$tableName','$ownerID')";
-            $checking = mysqli_query($conn, $sql2);
-            // echo $checking;
-            if($checking)
+            if(($pid == 100) || ($pid == 101))//Check if Privilege being added is Create / Drop Respectively.
             {
-                $flag = 1;
-                break;
-
+                $flag = 7;
+            break;
             }
-            else{
-                $flag = 0;
-                break;
+            else
+            {
+                $sql2 = "INSERT INTO relation_privileges values ('$pid','$tableName','$ownerID')";
+                $checking = mysqli_query($conn, $sql2);
+                // echo $checking;
+                if($checking)
+                {
+                    $flag = 1;
+                    break;
+
+                }
+                else{
+                    $flag = 0;
+                    break;
+                }
+
             }
 
         }
@@ -61,6 +70,10 @@ else if($flag == 1){
 }
 else if($flag == 2){
     Header( 'Location: ../html/add-relation-privilege.php?success=2' );
+    exit();
+}
+else if($flag == 7){
+    Header( 'Location: ../html/add-relation-privilege.php?success=7' );
     exit();
 }
 

@@ -6,6 +6,9 @@ include("../html/heading.php");
 ?>
 <title>Assign Roles to User Account</title>
 <div class="row">
+    <h4>Assign Role to a User</h4>
+</div>
+<div class="row">
     <div class="col-sm-4">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">User Settings</p>
