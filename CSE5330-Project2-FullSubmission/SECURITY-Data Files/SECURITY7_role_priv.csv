@@ -1,0 +1,14 @@
+alter,hr
+alter,manager
+create,hr
+delete,hr
+delete,manager
+drop,hr
+insert,hr
+insert,manager
+insert,staff
+select,clerk
+select,hr
+select,staff
+update,hr
+update,manager

@@ -1,0 +1,10 @@
+clerkTable,1
+hrTable,1
+managerTable,2
+staffTable,3
+employeeTable,4
+projectTable,5
+locationTable,6
+supervisorTable,7
+departmentTable,8
+dependentTable,9
