@@ -16,7 +16,7 @@
         <div id="content">
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                    <h3 class="text-dark mb-0" style="align-content: center;">Discretionary Access Control Management</h3>
+                    <h3 class="text-dark mb-0">Discretionary Access Control Management</h3>
                     <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <div class="input-group-append"></div>

@@ -68,13 +68,13 @@ include("../html/heading.php");
     </div>
     <div class="col">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Roles and Privileges</p>
+            <p class="text-primary m-0 font-weight-bold">User and Privileges</p>
         </div>
         <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
             <table class="table my-0 table-light table-striped  " id="dataTable">
                 <thead class="thead-dark">
                 <tr>
-                    <th>User ID </th>
+                    <th>User Name</th>
                     <th>Privilege Type</th>
                 </tr>
                 </thead>

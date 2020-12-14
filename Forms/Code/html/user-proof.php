@@ -43,7 +43,7 @@ include("../html/heading.php");
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM user_priv_table";
+                $sql = "SELECT * FROM user_priv_table ";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0)
                 {
